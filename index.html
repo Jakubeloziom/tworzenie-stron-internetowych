@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jakub Rejdych | Tworzenie i Hosting Stron Internetowych</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0a0a0a',
+                        primary: '#1e40af',
+                        accent: '#3b82f6'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #f3f4f6;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1f2937 100%);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: #3b82f6;
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-black bg-opacity-80 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-white font-bold text-xl">Jakub Rejdych</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-white hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">Start</a>
+                        <a href="#about" class="text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">O mnie</a>
+                        <a href="#services" class="text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">Usługi</a>
+                        <a href="#process" class="text-gray-300 hover:text-blue-400 px-3 py-2 rounded-md text-sm font-medium transition">Proces</a>
+                        <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition glow">Kontakt</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-button inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-black bg-opacity-95">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Start</a>
+                <a href="#about" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">O mnie</a>
+                <a href="#services" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Usługi</a>
+                <a href="#process" class="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Proces</a>
+                <a href="#contact" class="bg-blue-600 text-white block px-3 py-2 rounded-md text-base font-medium">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="800">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                    Tworzę nowoczesne strony <span class="text-blue-400">od pomysłu po hosting</span>
+                </h1>
+                <p class="text-lg text-gray-300 mb-8">
+                    Kompleksowe rozwiązania dla Twojej obecności online. Szybka realizacja, estetyka i pełne wsparcie techniczne.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition glow hover-scale">
+                        Bezpłatna wycena
+                    </a>
+                    <a href="#services" class="border border-gray-700 hover:border-blue-400 text-white px-6 py-3 rounded-md font-medium transition hover-scale">
+                        Poznaj usługi
+                    </a>
+                </div>
+            </div>
+            <div data-aos="fade-left" data-aos-duration="800" class="relative">
+                <div class="absolute -inset-4 bg-blue-500 rounded-xl opacity-20 blur-lg"></div>
+                <img src="http://static.photos/technology/1024x576/42" alt="Web Development" class="relative rounded-lg w-full h-auto shadow-2xl border border-gray-800">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-50 rounded-xl my-12">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-up" data-aos-duration="800">
+                <img src="http://static.photos/office/640x360/23" alt="Jakub Rejdych" class="rounded-lg w-full h-auto shadow-lg border border-gray-800">
+            </div>
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                <h2 class="text-3xl font-bold mb-6 section-title">Kim jestem</h2>
+                <p class="text-gray-300 mb-4">
+                    Nazywam się Jakub Rejdych. Jestem praktykiem technologii webowych i pasjonatem rozwiązań cyfrowych. 
+                </p>
+                <p class="text-gray-300 mb-6">
+                    Moje podejście łączy estetykę, użyteczność i stabilność działania — projektuję tak, by strona nie tylko ładnie wyglądała, ale też realizowała cele: informowała klientów, zbierała zapytania i budowała profesjonalny wizerunek.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-6 w-6 rounded-md bg-blue-600 text-white">
+                                <i data-feather="check" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">
+                            Przejrzysta komunikacja i uczciwe podejście do wyceny
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-6 w-6 rounded-md bg-blue-600 text-white">
+                                <i data-feather="check" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">
+                            Pełna odpowiedzialność za każdy etap projektu
+                        </p>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-6 w-6 rounded-md bg-blue-600 text-white">
+                                <i data-feather="check" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        <p class="ml-3 text-gray-300">
+                            Nowoczesne rozwiązania dopasowane do Twoich potrzeb
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4 section-title mx-auto">Co oferuję</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Kompleksowe usługi związane z obecnością w sieci — od pierwszego szkicu po codzienne wsparcie.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service 1 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="code" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Projektowanie i tworzenie stron</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Strony wizytówki i firmowe</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Strony dla stowarzyszeń i grup</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Responsywna budowa</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Service 2 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="server" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Hosting i konfiguracja</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Konfiguracja serwera i domeny</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Optymalizacja wydajności</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Backupy i monitoring</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Service 3 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="settings" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Zarządzanie i aktualizacje</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Dodawanie treści na żądanie</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Aktualizacje techniczne</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Bieżące poprawki</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Service 4 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="life-buoy" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Wsparcie techniczne</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Szybka reakcja na awarie</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Doradztwo technologiczne</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="check" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Pomoc przy integracjach</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Pricing -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="dollar-sign" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Wycena</h3>
+                <p class="text-gray-400 mb-4">
+                    Każdy projekt wyceniam indywidualnie — po rozmowie i poznaniu potrzeb klienta.
+                </p>
+                <p class="text-gray-300">
+                    Dzięki temu dostajesz ofertę dokładnie dopasowaną do Twoich oczekiwań.
+                </p>
+            </div>
+            
+            <!-- For Whom -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="w-12 h-12 rounded-lg bg-blue-600 flex items-center justify-center mb-4">
+                    <i data-feather="users" class="w-6 h-6 text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Dla kogo to działa</h3>
+                <ul class="space-y-2 text-gray-400">
+                    <li class="flex items-start">
+                        <i data-feather="user" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Właściciele małych firm</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="users" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Stowarzyszenia i grupy</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i data-feather="briefcase" class="w-4 h-4 text-blue-400 mt-1 mr-2"></i>
+                        <span>Profesjonalne wizytówki</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto bg-black bg-opacity-50 rounded-xl my-12">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4 section-title mx-auto">Proces pracy</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Przejrzysta sekwencja kroków dopasowana do Twoich potrzeb i budżetu.
+            </p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Step 1 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">1</div>
+                    <h3 class="text-xl font-bold">Wywiad i brief</h3>
+                </div>
+                <p class="text-gray-400">
+                    Dogłębnie rozumiem cel strony i potrzeby użytkowników. Określamy wspólnie wszystkie wymagania.
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">2</div>
+                    <h3 class="text-xl font-bold">Projekt koncepcyjny</h3>
+                </div>
+                <p class="text-gray-400">
+                    Tworzę szkic układu i estetyki (wireframe) do Twojej akceptacji przed rozpoczęciem prac.
+                </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">3</div>
+                    <h3 class="text-xl font-bold">Projekt wizualny</h3>
+                </div>
+                <p class="text-gray-400">
+                    Dopracowuję wygląd, kolory, typografię i wszystkie elementy graficzne strony.
+                </p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">4</div>
+                    <h3 class="text-xl font-bold">Realizacja techniczna</h3>
+                </div>
+                <p class="text-gray-400">
+                    Budowa strony, integracje zewnętrznych narzędzi i optymalizacja pod kątem wydajności.
+                </p>
+            </div>
+            
+            <!-- Step 5 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">5</div>
+                    <h3 class="text-xl font-bold">Testy i uruchomienie</h3>
+                </div>
+                <p class="text-gray-400">
+                    Sprawdzam działanie na różnych urządzeniach i wdrażam stronę na serwerze produkcyjnym.
+                </p>
+            </div>
+            
+            <!-- Step 6 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="bg-gray-900 rounded-xl p-6 border border-gray-800 hover-scale transition">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold mr-4">6</div>
+                    <h3 class="text-xl font-bold">Wsparcie po uruchomieniu</h3>
+                </div>
+                <p class="text-gray-400">
+                    Aktualizacje i szybkie wprowadzanie zmian na żądanie. Zawsze jestem dostępny.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold mb-4 section-title mx-auto">FAQ</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto">
+                Najczęściej zadawane pytania i odpowiedzi
+            </p>
+        </div>
+        
+        <div class="max-w-3xl mx-auto space-y-6">
+            <!-- FAQ 1 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+                <div class="flex justify-between items-center cursor-pointer faq-toggle">
+                    <h3 class="text-lg font-medium text-white">Czy mogę zmieniać treści samodzielnie?</h3>
+                    <i data-feather="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                </div>
+                <div class="faq-content mt-4 hidden">
+                    <p class="text-gray-400">
+                        Tak — przygotowuję panel do prostego edytowania treści lub mogę wprowadzać zmiany za Ciebie.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ 2 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+                <div class="flex justify-between items-center cursor-pointer faq-toggle">
+                    <h3 class="text-lg font-medium text-white">Czy zapewniasz domenę i hosting?</h3>
+                    <i data-feather="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                </div>
+                <div class="faq-content mt-4 hidden">
+                    <p class="text-gray-400">
+                        Tak — mogę zająć się kupnem domeny, konfiguracją i hostingiem (koszty hostingu są dodatkowe, jeśli klient decyduje się na płatny serwer).
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ 3 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+                <div class="flex justify-between items-center cursor-pointer faq-toggle">
+                    <h3 class="text-lg font-medium text-white">Ile kosztuje strona?</h3>
+                    <i data-feather="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                </div>
+                <div class="faq-content mt-4 hidden">
+                    <p class="text-gray-400">
+                        Koszt zależy od funkcji i zakresu. Przygotuję wycenę po rozmowie o Twoich potrzebach.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ 4 -->
+            <div data-aos="fade-up" data-aos-duration="800" class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+                <div class="flex justify-between items-center cursor-pointer faq-toggle">
+                    <h3 class="text-lg font-medium text-white">Jak długo trwa realizacja projektu?</h3>
+                    <i data-feather="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                </div>
+                <div class="faq-content mt-4 hidden">
+                    <p class="text-gray-400">
+                        Standardowe projekty realizuję w ciągu 2-4 tygodni. Czas może się wydłużyć w przypadku bardziej złożonych wymagań.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- FAQ 5 -->
+            <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" class="bg-gray-900 rounded-xl p-6 border border-gray-800">
+                <div class="flex justify-between items-center cursor-pointer faq-toggle">
+                    <h3 class="text-lg font-medium text-white">Czy strona będzie działać na telefonach?</h3>
+                    <i data-feather="chevron-down" class="w-5 h-5 text-gray-400 transform transition-transform duration-300"></i>
+                </div>
+                <div class="faq-content mt-4 hidden">
+                    <p class="text-gray-400">
+                        Oczywiście! Wszystkie moje projekty są w pełni responsywne i dostosowane do różnych rozmiarów ekranu.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right" data-aos-duration="800">
+                <h2 class="text-3xl font-bold mb-6 section-title">Skontaktuj się</h2>
+                <p class="text-gray-300 mb-8">
+                    Masz pytania lub chcesz omówić swój projekt? Napisz do mnie, a przygotuję wstępną koncepcję i przejrzystą wycenę.
+                </p>
+                
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-600 text-white">
+                                <i data-feather="mail" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">E-mail</h3>
+                            <p class="text-gray-400 hover:text-blue-400 transition">
+                                <a href="mailto:jakub.rejdych67@gmail.com">jakub.rejdych67@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-600 text-white">
+                                <i data-feather="phone" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">Telefon</h3>
+                            <p class="text-gray-400">
+                                +48 516 916 344
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 mt-1">
+                            <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-600 text-white">
+                                <i data-feather="clock" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <h3 class="text-lg font-medium text-white">Dostępność</h3>
+                            <p class="text-gray-400">
+                                Odpowiadam w ciągu 24 godzin w dni robocze
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div data-aos="fade-left" data-aos-duration="800">
+                <form class="bg-gray-900 rounded-xl p-8 border border-gray-800">
+                    <div class="mb-6">
+                        <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Imię i nazwisko</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-blue-500 text-white placeholder-gray-500 transition">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-gray-300 mb-2">E-mail</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-blue-500 text-white placeholder-gray-500 transition">
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-2">Wiadomość</label>
+                        <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 focus:border-blue-500 focus:ring-blue-500 text-white placeholder-gray-500 transition"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition glow hover-scale">
+                        Wyślij wiadomość
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 px-4 sm:px-6 lg:px-8 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">Jakub Rejdych</h3>
+                    <p class="text-gray-400">
+                        Tworzę nowoczesne strony od pomysłu po hosting — szybka realizacja, estetyka i pełne wsparcie.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Szybkie linki</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-blue-400 transition">Start</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-blue-400 transition">O mnie</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-blue-400 transition">Usługi</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-blue-400 transition">Proces</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-blue-400 transition">Kontakt</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-white mb-4">Kontakt</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-400">E-mail: <a href="mailto:jakub.rejdych67@gmail.com" class="hover:text-blue-400 transition">jakub.rejdych67@gmail.com</a></li>
+                        <li class="text-gray-400">Telefon: +48 516 916 344</li>
+                    </ul>
+                    
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i data-feather="facebook" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i data-feather="twitter" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i data-feather="linkedin" class="w-5 h-5"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+                            <i data-feather="github" class="w-5 h-5"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2023 Jakub Rejdych. Wszelkie prawa zastrzeżone.
+                </p>
+                <p class="text-gray-500 text-sm mt-4 md:mt-0">
+                    Stworzone z <i data-feather="heart" class="w-4 h-4 text-red-500 inline"></i> przez Jakuba Rejdycha
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize AOS
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out',
+        });
+        
+        // Feather Icons
+        feather.replace();
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // FAQ toggle
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+        
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+                
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
